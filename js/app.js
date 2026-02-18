@@ -6,7 +6,7 @@ function adicionar(){
         alert('Você precisa informar um nome!!!');
         return;
     }
-    
+
     listaAmigos.push(nomePessoa);
 
     let listaNomes = document.getElementById('lista-amigos');
@@ -31,8 +31,18 @@ function sortear(){
 }
 
 //Funcao para reiniciar a lista de amigos secretos
+function reiniciar(){
+    let limparNomePessoa = document.getElementById('nome-amigo');
+    let limparListaNomes = document.getElementById('lista-amigos');
+    let limparExibirSorteio = document.getElementById('lista-sorteio');
+    
+    limparNomePessoa.value = '';
+    limparListaNomes.innerHTML = '';
+    limparExibirSorteio.innerHTML = '';
 
+    listaAmigos = [];
 
+}
 
 //Algoritimo de Fisher-Yates para embaralhar um array (faz um swap entre a posicao i do array e a posicao j do array sendo j gerado aleatoriamente)
 function shuffle(array){
