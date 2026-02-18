@@ -15,7 +15,7 @@ function adicionar(){
     listaAmigos.push(nomePessoa);
 
     let listaNomes = document.getElementById('lista-amigos');
-    listaNomes.innerHTML += `${nomePessoa} `;
+    listaNomes.innerHTML += `<span onclick="apagarClicando('${nomePessoa}')" style="cursor: pointer;">${nomePessoa} </span>`;
 
     let limparNomePessoa = document.getElementById('nome-amigo');
     limparNomePessoa.value= '';
@@ -46,6 +46,20 @@ function reiniciar(){
     limparExibirSorteio.innerHTML = '';
 
     listaAmigos = [];
+
+}
+
+//Funcao para remover nome da lista de nomes ao clicar no nome com o cursor
+function apagarClicando(nome){
+    let listaNomes = document.getElementById('lista-amigos');
+    let limparExibirSorteio = document.getElementById('lista-sorteio')
+    limparExibirSorteio.innerHTML = '';
+    let index = listaAmigos.indexOf(nome);
+    listaAmigos.splice(index,1);
+    listaNomes.innerHTML = '';
+    for (let i=0; i<=listaAmigos.length-1; i++){
+        listaNomes.innerHTML += `<span onclick="apagarClicando('${listaAmigos[i]}')" style="cursor: pointer;">${listaAmigos[i]} </span>`;
+    }
 
 }
 
